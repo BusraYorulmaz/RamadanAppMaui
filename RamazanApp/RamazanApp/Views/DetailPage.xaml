@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RamazanApp.Views.DetailPage"
+             Title="VAKİTLER"
+             BackgroundImageSource="r5.png">
+    <ScrollView>
+        <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" Margin="20">
+            
+            <StackLayout Grid.Row="0" Margin="0,85">
+                <Label x:Name="LabelcityName" TextColor="DarkBlue" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Large"/>
+                <Label x:Name="labelDate" TextColor="White" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Medium"/>
+            </StackLayout>
+            
+            <StackLayout Grid.Row="1">
+                <Frame CornerRadius="10" HeightRequest="80">
+                    <FlexLayout JustifyContent="SpaceBetween">
+                        <Label Text="Sahur Vakti" FontSize="Medium" FontAttributes="Bold"/>
+                        <Label Text="{Binding imsak}" FontSize="Medium"/> 
+                    </FlexLayout>
+                </Frame>
+            </StackLayout>
+            
+            <StackLayout Grid.Row="2" Margin="0,10,0,0">
+                <Frame CornerRadius="10" HeightRequest="80">
+                    <FlexLayout JustifyContent="SpaceBetween">
+                        <Label Text="İftar Vakti" FontSize="Medium" FontAttributes="Bold"/>
+                        <Label  Text="{Binding aksam}" FontSize="Medium"/>
+                    </FlexLayout>
+                </Frame>
+            </StackLayout>
+            
+            <StackLayout Grid.Row="3" Margin="0,50,0,0" Padding="0" >
+                <Label Text="NAMAZ VAKİTLERİ" TextColor="White" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Large"/>
+            </StackLayout>
+            
+            <CollectionView Grid.Row="4" ItemsSource="{Binding}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Margin="15">
+                            <FlexLayout JustifyContent="SpaceBetween" VerticalOptions="Center" HeightRequest="70" WidthRequest="500">
+                                <Frame CornerRadius="10">
+                                    <StackLayout>
+                                        <Label Text="İmsak" FontAttributes="Bold"/>
+                                        <Label Text="{Binding imsak}"/>
+                                    </StackLayout>
+                                </Frame>
+                                <Frame CornerRadius="10">
+                                    <StackLayout>
+                                        <Label Text="Öğle" FontAttributes="Bold"/>
+                                        <Label Text="{Binding ogle}"/>
+                                    </StackLayout>
+                                </Frame>
+                                <Frame CornerRadius="10">
+                                    <StackLayout>
+                                        <Label Text="İkindi" FontAttributes="Bold"/>
+                                        <Label Text="{Binding ikindi}"/>
+                                    </StackLayout>
+                                </Frame>
+                                <Frame CornerRadius="10">
+                                    <StackLayout>
+                                        <Label Text="Akşam" FontAttributes="Bold"/>
+                                        <Label Text="{Binding aksam}"/>
+                                    </StackLayout>
+                                </Frame>
+                                <Frame CornerRadius="10">
+                                    <StackLayout>
+                                        <Label Text="Yatsı" FontAttributes="Bold"/>
+                                        <Label Text="{Binding yatsi}"/>
+                                    </StackLayout>
+                                </Frame>
+                            </FlexLayout>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>   
+            
+        </Grid>
+    </ScrollView>
+</ContentPage>

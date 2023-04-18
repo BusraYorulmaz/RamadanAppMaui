@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RamazanApp.Views.HomePage"
+             x:Name="mainPage"
+             NavigationPage.HasNavigationBar="False">
+    
+    <ScrollView>
+        <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" Margin="20">
+            
+            <StackLayout Grid.Row="0" Margin="20,40,20,0" Orientation="Horizontal" HorizontalOptions="Center">
+                <Frame Padding="20" CornerRadius="20" HasShadow="True" BorderColor="Blue">
+                    <Label Text="Ramazan Uygulaması"/>
+                </Frame>
+            </StackLayout>
+            
+            <Image Grid.Row="1" x:Name="ImageRamazanIcon" Source="ramazan.png" VerticalOptions="Start" HeightRequest="150" WidthRequest="300"/>
+            
+            <ListView Grid.Row="2" x:Name="DataList">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell  Text="{Binding CityName}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+            <Label Grid.Row="3" Text="İl Seçiniz" FontSize="12" Margin="10,30,10,0" HorizontalOptions="Center" FontAttributes="Bold"/>
+
+            <Frame Grid.Row="4" Padding="0" Margin="10,5,10,0" BackgroundColor="LightGray">
+                <Picker x:Name="myPicker" HorizontalOptions="Center" Title="Şehir Seç"/>                 
+            </Frame>
+            
+            <Label Grid.Row="5" Text="Tarih Seçiniz" FontSize="12" Margin="10,25,10,0" HorizontalOptions="Center" FontAttributes="Bold"/>
+
+            <Frame Grid.Row="6" Padding="0" Margin="10,5,10,0" BackgroundColor="LightGray">
+                <Picker HorizontalOptions="Center" x:Name="myDatePicker" Title="Tarih Seç"/>
+            </Frame>
+ 
+           <Button Grid.Row="7" Text="VAKİTLERİ GÖSTER" BackgroundColor="Blue" Margin="10,40,10,10" Clicked="Button_Clicked"/>
+
+        </Grid>
+    </ScrollView>
+</ContentPage>
